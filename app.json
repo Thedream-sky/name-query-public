@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/info/info"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "姓名姻缘查询",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#FBE7E6"
+  }
+}

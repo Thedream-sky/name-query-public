@@ -1,0 +1,68 @@
+.intro {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.form {
+  background: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  margin: 0 40px;
+  padding-top: 10px;
+  padding-bottom: 14px;
+}
+
+.form-title{
+  margin-top: 10px;
+  font-size: 24px;
+  color: #FF828E;
+  font-weight: bold;
+}
+
+.form-info{
+  font-size: 14px;
+}
+
+.you-name{
+  margin-top: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.he-name{
+  margin-top: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+input{
+  background: #e6e3e3;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.submit{
+  margin-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.submit button{
+  border-radius: 22px;
+  background-color: #EB3743;
+  color: #ffffff;
+}
+
+/* 利用伪类去除边框 */
+.submit button::after{
+  border: none; 
+}
+
+.footer{
+  margin-top: 6px;
+  color: #252222;
+  font-size: 10px;
+}
+

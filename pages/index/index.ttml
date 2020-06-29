@@ -1,0 +1,25 @@
+<view class="intro">
+  <image src="../../static/imgs/WechatIMG13.jpeg" 
+         style="width: 100%; height: 360px;"
+         mode="scaleToFill" />
+  <view class="form">
+      <view><text class="form-title">姓名契合配对</text></view>
+      <view><text class="form-info">从名字看你们适合一起不？</text></view>
+      <view class="you-name">
+        <input type="" 
+               id="yourName"
+               value={{yourName}} 
+               bindinput="inputChange" 
+               placeholder="点击输入你的名字"/>
+      </view>
+      <view class="he-name">
+        <input type="" 
+               id="hisName"
+               value={{hisName}}
+               bindinput="inputChange" 
+               placeholder="点击输入ta的名字" />
+      </view>
+  </view>
+  <view class="submit" animation="{{animationData}}"><button type="default" size="default" bindtap="summitTap"> {{yourName&&hisName? "看1个广告免费测试":"立即测试"}} </button></view>
+  <view class="footer"><text> -- 本小程序仅供娱乐 -- </text></view>
+</view>

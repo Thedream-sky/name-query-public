@@ -1,0 +1,39 @@
+<!-- pages/info/info.ttml -->
+<view class="main">
+    <view class="top" animation="{{animationData}}">
+      <image src="../../static/imgs/38bcabbabf29958c5cd3745b873b451c.png" mode="" />
+    </view>
+    <view class="match-area" animation="{{animationData}}">
+      <view class="matched-degree"><text >{{info.matchNum}}%</text></view>
+      <view class="matched-title"><text style="color: #ffffff">锲合度</text></view>
+    </view>
+    <view class="text-area">
+      <view class="name-area">
+        <text class="info-text">{{yourName}}</text>
+        <text>{{hisName}}</text>
+      </view>
+      <view class="key-title"><text>{{info.keyTitle}}</text></view>
+      <view class="line"></view>
+      <view class="explain-text"><text>{{info.specialty}}</text></view>
+        <tag-info title="温情时刻" 
+                  textColor="#F33C4E" 
+                  bind:toUnlock="unLock"
+                  locked={{locked}}
+                  tags={{info.warmTime}}>
+        </tag-info>
+        <tag-info title="恋爱最容易进展的月份" 
+                  textColor="#f99656" 
+                  bind:toUnlock="unLock"
+                  locked={{locked}}
+                  tags={{info.months}}>
+        </tag-info>
+        <tag-info title="适合约会的地方" 
+                  textColor="#FD99A3" 
+                  bind:toUnlock="unLock"
+                  locked={{locked}}
+                  tags={{info.suitPlace}}>
+        </tag-info>
+    </view>
+    <view class="query-button"><button type="default" size="default" bindtap="unLock" tt:if={{locked}} animation="{{animationData}}"> 看一个广告解锁全部 </button></view>
+    <view class="query-button"><button type="default" size="default" bindtap="testAgain" tt:if={{!locked}}> 再测一遍？ </button></view>
+</view>

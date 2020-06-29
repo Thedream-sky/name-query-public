@@ -1,0 +1,100 @@
+/* pages/info/info.ttss */
+.main{
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+  background: #FC858E;
+}
+.top{
+  position: absolute;
+  top: 0px;
+  margin: 0 auto;
+  width: 100%;
+  background: #FC858E;
+}
+.top image{
+  width: 170px;
+  height: 153px;
+}
+
+.match-area{
+  width: 100%;
+  top: 0px;
+  position: absolute;
+  margin: 0 auto;  
+}
+.matched-degree{
+  margin-top: 26px;
+}
+.matched-degree text{
+  font-size: 40px;
+  color: #ffffff;
+}
+.matched-title text{
+    font-size: 20px;
+}
+.text-area{
+  position: relative;
+  top: 110px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 60px 10px 70px 10px;
+}
+.text-area text{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.name-area{
+  font-size: 20px;
+  font-weight: bold;
+  color: #FF4979;
+}
+
+.info-text{
+  margin-right: 60px;
+}
+.key-title{
+  margin-top: 10px;
+}
+.key-title text{
+  font-size: 20px;
+  color: #f50b0b;
+}
+
+.line{
+  margin-top: 10px;
+  height: 1px;
+  width: 100%;
+  background: #dad7d7;
+}
+.explain-text{
+  text-align: left;
+}
+.explain-text text{
+  font-size: 16px;
+}
+
+.query-button{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+}
+.query-button button{
+  background-color:#FF6843;
+  border-radius: 40px;
+  color: #ffffff;
+  margin: 10px 30px;
+}
+
+/* 利用伪类去除边框 */
+.query-button button::after{
+  border: none; 
+}
+
+

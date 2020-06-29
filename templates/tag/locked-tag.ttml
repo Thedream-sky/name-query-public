@@ -1,0 +1,5 @@
+<template name="locked-tag">
+  <view style="border:1px solid {{textColor}}; border-radius: 20px; text-align: center; padding-left: 10px; padding-right: 10px;margin-top: 10px">
+    <text style="font-size: 14px; color: {{textColor}}">****</text>
+  </view>
+</template>

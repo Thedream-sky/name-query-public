@@ -1,0 +1,56 @@
+/* compoents/taginfo/taginfo.ttss */
+.tags-main{
+  position: relative;
+  width: 100%;
+  text-align: left;
+  padding-bottom: 80px;
+}
+.title{
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.title text{
+  color: #ffffff;
+  font-size: 18px;
+}
+.tags{
+  position: relative;
+  float: left;
+  padding: 0px 4px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.lock-view{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.lock-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #C7C7C7;
+  opacity: .9;
+  height: 88px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.lock-content text{
+  font-size: 14px;
+  color: #909090;
+}
+
+.tt-warn{
+  margin-right: 4px;
+}
+
+
+

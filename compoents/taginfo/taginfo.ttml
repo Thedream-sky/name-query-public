@@ -1,0 +1,19 @@
+<!-- compoents/taginfo/taginfo.ttml -->
+<import src="../../templates/tag/tag.ttml" />
+<import src="../../templates/tag/locked-tag.ttml" />
+
+<view class="tags-main">
+   <view class="title" style="background:{{textColor}}">
+     <text>{{title}}</text>
+   </view>
+   <view tt:for="{{tags}}" tt:key="{{index} }"  class="tags">
+     <template is="tag" data="{{tag: item, textColor: textColor}}" tt:if="{{!lockFlag}}" />
+     <template is="locked-tag" data="{{tag: item, textColor: textColor}}" tt:else />
+   </view>
+   <view class="lock-view" tt:if="{{lockFlag}}" >
+     <view class="lock-content" bindtap="onTap">
+       <icon class="tt-warn" type="warn" size="16" color= "#909090"></icon>
+       <text>隐藏待解锁</text>
+     </view>
+   </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tag-info": "../../compoents/taginfo/taginfo"
+  },
+  "backgroundColor": "#FC858E",
+  "navigationBarBackgroundColor": "#FC858E",
+  "navigationBarTextStyle": "white"
+}
