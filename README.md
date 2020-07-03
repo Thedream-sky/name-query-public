@@ -10,5 +10,9 @@
 * 我这个项目的整体架构基本是抖音小程序+知晓云后端服务
 
 效果图：
-<img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200629200917.png" style="width:60px; height: 120px">
+
+<img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200629200917.png" width="200px" height="400px">
+
 后面审核通过，我会把抖音二维码放出来，希望大家捧场（😏）
+
+<img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200629202632.png" width="200px" height="200px">
