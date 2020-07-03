@@ -1,6 +1,8 @@
 // pages/info/info.js
 const toastUtil = require('../../utils/toastUtil')
 const boardUtil = require('../../utils/boardUtil')
+const shareUtil = require('../../utils/shareUtil')
+
 
 Page({
   data: {
@@ -10,12 +12,28 @@ Page({
     locked: true,
   },
   onLoad: function (options) {
+    // 显示分享按钮
+    shareUtil.showShareIcon()
     const matchUtil = require('../../utils/matchUtil');  
     this.setData({
       info: matchUtil.getMatchInfo(options.dsc),
       yourName: options.yourName,
       hisName: options.hisName
     })
+  },
+  onShareAppMessage (option) {
+    // option.from === 'button'
+    return {
+      title: '超准的姓名测试',
+      path: '/pages/index/index', // ?后面的参数会在转发页面打开时传入onLoad方法
+      templateId: '1acp3dmk1meb2olut2',
+      success () {
+        console.log('转发发布器已调起，并不意味着用户转发成功，微头条不提供这个时机的回调');
+      },
+      fail () {
+        console.log('转发发布器调起失败');
+      }
+    }
   },
   // 动画
   animate: function(){

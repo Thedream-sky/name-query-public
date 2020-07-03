@@ -66,3 +66,25 @@ input{
   font-size: 10px;
 }
 
+.take-photo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 0px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.take-photo button{
+  font-size: 16px;
+  width: 100px;
+  color: #FF828E;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.take-photo button::after{
+    border: none; 
+}

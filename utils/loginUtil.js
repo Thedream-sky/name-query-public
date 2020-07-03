@@ -1,3 +1,4 @@
+const tokenUtil = require('./getToken');
 function loginInit(){
      // 引入 SDK
      require('../libs/sdk-bytedance.3.12.0.js')
@@ -7,6 +8,10 @@ function loginInit(){
      tt.BaaS.auth.loginWithTt().then(user => {
         // 登录成功
         console.log('登录成功', user)
+         // 初始化token
+        tokenUtil.getTokenFromStroge(function(res){
+          console.log('*****',res);
+        });
       }, err => {
         // 登录失败
         console.log(err)

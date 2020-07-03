@@ -20,8 +20,6 @@ Component({
       type: Boolean,
       value: true,
       observer: function(e){
-        console.log(e,'234567890');
-        debugger 
         this.updateLock()
       }
     }

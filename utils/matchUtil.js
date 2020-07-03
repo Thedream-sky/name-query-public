@@ -96,7 +96,7 @@ const matchData = [{
 },
 {
     "keyTitle": "相约黄昏，共赏夕阳",
-    "matchNum": "90",
+    "matchNum": "70",
     "specialty": "你们或许因为年少轻狂，或许月老作弄，你们错过了年轻时激扬的热情。当你们的缘分到来的时候，你们已经经历了大半辈子的沧桑。好不容易结合的你们会更加珍惜、享受这迟来的爱。",
     "warmTime": ["送你礼物", "从后面抱你", "接你回家", "一起打游戏"],
     "suitPlace": ["电影院", "咖啡厅", "公园", "水族馆"],
@@ -186,7 +186,7 @@ const matchData = [{
 /** 获取匹配数据 */
 function getMatchInfo(index){
   if(index > 22){
-    index = index%22 -1
+    index = index%22
   }
   
   return matchData[index]

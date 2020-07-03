@@ -42,3 +42,5 @@ module.exports = {
   showLoading: showLoading,
   closeLoading: closeLoading
 }
+
+

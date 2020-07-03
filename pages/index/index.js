@@ -3,10 +3,17 @@ const appConfig = require('../../utils/appConfig')
 const toastUtil = require('../../utils/toastUtil')
 const boardUtil = require('../../utils/boardUtil')
 const tableUtil = require('../../utils/tableUtil')
+const tokenUtil = require('../../utils/getToken')
+const lodash = require('../../utils/lodash')
+const shareUtil = require('../../utils/shareUtil')
+
+
+const yunFunctionTool = require('../../utils/yunFunctions');
 Page({
   data: {
     yourName: '',
     hisName: '',
+    systemAppName: ''
   },
   // 动画
   animate: function(){
@@ -27,6 +34,44 @@ Page({
         animationData: this.animation.export()
       });
   },
+  onShareAppMessage (option) {
+    // 菜单栏点击分享
+    if(option.from === 'button' && option.channel === 'video'){
+       return {
+          extra: {
+          	// 注意，只有小程序使用button组件触发分享时，会有target属性
+            videoPath : '',
+            videoTopics: ['姓名测试', '测试'],
+            withVideoId: true
+          },
+          success(res){
+            debugger
+          },
+          fail(err){
+            console.log(err);
+            debugger
+          }
+        }
+    }else{
+      return {
+        title: '超准的姓名测试',
+        path: '/pages/index/index', // ?后面的参数会在转发页面打开时传入onLoad方法
+        templateId: '1acp3dmk1meb2olut2',
+        success () {
+          console.log('转发发布器已调起，并不意味着用户转发成功，微头条不提供这个时机的回调');
+        },
+        fail () {
+          console.log('转发发布器调起失败');
+        }
+      }
+    }
+  },
+  onLoad: function(){
+    shareUtil.showShareIcon()
+    this.setData({
+      systemAppName: tt.getSystemInfoSync().appName.toUpperCase()
+    })
+  },
   onReady: function(){
     this.interval = setInterval(this.animate, 500)
   },
@@ -40,11 +85,13 @@ Page({
     let value = event.detail.value.trim().slice(0,6);
     let id = event.target.id
     let pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%+_]")
-    // 赋值
-    this.setData({
-      // 去除特殊字符
-      [id]: value.replace(pattern, '')
-    })
+    setTimeout(()=>{
+      // 赋值
+      this.setData({
+        // 去除特殊字符
+        [id]: value.replace(pattern, '')
+      })
+    },0)
   },
   // 检查名称
   checkName: function(){
@@ -61,20 +108,52 @@ Page({
   },
   // 提交按钮
   summitTap: function(){
+    const {yourName, hisName} = this.data;   
     // 检查不通过
     if(!this.checkName()){
       return ;
     }
-    const {yourName, hisName} = this.data;
-    
-    // 插入查询数据
-    tableUtil.insertTable({
-      tableName: appConfig.QUERY_TABLE,
-      insertInfo: {
-        yourName,
-        hisName
-      },
-      callback: this.openRewardedVideoAd
+    // 获取token
+    tokenUtil.getTokenFromStroge(token=>{
+       // 检查输入内容 
+       yunFunctionTool.yunFunction({
+          funcName: 'checkTextLegal',
+          params: {
+            XToken: token,
+            checkTexts: [yourName, hisName]
+          },
+          success: (res)=>{
+            console.log('****', res)
+            if (res.code === 0) {
+                if(res.data.data.every(item => item.predicts[0].prob !== 1)){
+                  console.log('输入内容没有违规');
+                  // 插入查询数据
+                  tableUtil.insertTable({
+                    tableName: appConfig.QUERY_TABLE,
+                    insertInfo: {
+                      yourName,
+                      hisName
+                    },
+                    callback: this.openRewardedVideoAd
+                  })
+                }else{
+                  toastUtil.showToast('输入名字有违规')
+                }
+            } else {
+              if(res.code === 401){
+                 // 直接刷新
+                 tokenUtil.getToken(()=>{
+                   console.log('获取新的token')
+                 })
+              }
+              console.log(res)
+              // callback(result.error.message)
+            }
+          },
+          fail: (err)=>{
+            console.log(err)
+          }
+      })
     })
   },
   // 打开广告
