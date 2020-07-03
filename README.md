@@ -15,4 +15,5 @@
 
 后面审核通过，我会把抖音二维码放出来，希望大家捧场（😏）
 
-<img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200629202632.png" width="200px" height="200px">
+<img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200703193255.png" width="200px" 
+height="200px">
